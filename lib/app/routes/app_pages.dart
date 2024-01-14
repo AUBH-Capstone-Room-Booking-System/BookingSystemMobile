@@ -16,6 +16,8 @@ import '../modules/home/views/home_view.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
+import '../modules/reset/bindings/reset_binding.dart';
+import '../modules/reset/views/reset_view.dart';
 
 part 'app_routes.dart';
 
@@ -59,6 +61,11 @@ class AppPages {
       name: _Paths.CALENDAR,
       page: () => const CalendarView(),
       binding: CalendarBinding(),
+    ),
+    GetPage(
+      name: _Paths.RESET,
+      page: () => const ResetView(),
+      binding: ResetBinding(),
     ),
   ];
 }

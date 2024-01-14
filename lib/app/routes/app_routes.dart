@@ -10,6 +10,7 @@ abstract class Routes {
   static const FAVORITES = _Paths.FAVORITES;
   static const ACCOUNT = _Paths.ACCOUNT;
   static const CALENDAR = _Paths.CALENDAR;
+  static const RESET = _Paths.RESET;
 }
 
 abstract class _Paths {
@@ -21,4 +22,5 @@ abstract class _Paths {
   static const FAVORITES = '/favorites';
   static const ACCOUNT = '/account';
   static const CALENDAR = '/calendar';
+  static const RESET = '/reset';
 }

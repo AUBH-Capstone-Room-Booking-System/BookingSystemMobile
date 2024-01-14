@@ -9,8 +9,7 @@ class LoginController extends GetxController {
   //TODO: Implement LoginController
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
-  final _getStorage = GetStorage();
-
+bool obscureText=true;
   void login() async {
     // Create Dio instance
     Dio dio = Dio();
