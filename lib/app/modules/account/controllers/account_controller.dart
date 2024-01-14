@@ -40,6 +40,8 @@ Get.offAllNamed("/login");
       prefs.setString("phoneNumber",response.data['user']["phoneNumber"]);
       prefs.setInt("myId",response.data['user']["id"]);
       Get.offAllNamed("/");
+      Get.snackbar("Success", "Successfully edited profile",  snackPosition: SnackPosition.BOTTOM);
+
       update();
     } catch (error) {
       print('Error: $error');

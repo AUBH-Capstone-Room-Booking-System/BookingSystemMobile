@@ -1,7 +1,9 @@
+import 'package:bookingstore/AppColors.dart';
 import 'package:bookingstore/AppContants.dart';
 import 'package:bookingstore/main.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
@@ -34,7 +36,7 @@ bool obscureText=true;
 
         Get.offAndToNamed("/");
       }else{
-        Get.snackbar("Login", "Wrong email and password",  snackPosition: SnackPosition.BOTTOM);
+        Get.snackbar("Login", "Wrong email and password",  snackPosition: SnackPosition.BOTTOM,backgroundColor: AppColors.bookedColor,colorText: Colors.white);
       }
     } catch (error) {
       print('Error: $error');

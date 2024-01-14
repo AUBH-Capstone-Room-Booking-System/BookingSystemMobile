@@ -46,7 +46,7 @@ class BookingController extends GetxController {
       };
       var response =
           await dio.post("${AppConstants.hostUrl}/booking/add", data: reqData);
-      Get.snackbar("Added", "Successfully booked the room!",snackPosition: SnackPosition.BOTTOM);
+      Get.snackbar("Booked", "Successfully booked the room!",snackPosition: SnackPosition.BOTTOM);
       Get.toNamed("/");
     } catch (e) {}
   }
@@ -98,7 +98,7 @@ class BookingController extends GetxController {
       };
       var response =
       await dio.post("${AppConstants.hostUrl}/favorite/delete", data: reqData);
-      Get.snackbar("Added", "removed room from favorites!",snackPosition: SnackPosition.BOTTOM);
+      Get.snackbar("Removed", "removed room from favorites!",snackPosition: SnackPosition.BOTTOM);
 
     } catch (error) {
       print('Error: $error');

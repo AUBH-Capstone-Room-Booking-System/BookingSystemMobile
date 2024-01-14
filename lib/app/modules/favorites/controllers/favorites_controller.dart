@@ -45,7 +45,7 @@ class FavoritesController extends GetxController {
       print(reqData);
       var response =
       await dio.post("${AppConstants.hostUrl}/favorite/delete", data: reqData);
-      Get.snackbar("Added", "removed room from favorites!",snackPosition: SnackPosition.BOTTOM);
+      Get.snackbar("Removed", "removed room from favorites!",snackPosition: SnackPosition.BOTTOM);
       print(selectedFavorite);
       favorites.removeAt(selectedFavorite);
       update();

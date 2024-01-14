@@ -11,7 +11,6 @@ DateTime today=DateTime.now();
 var myBookings=[];
 changeDay(day,focusedDay)async{
   today=day;
-  print(day);
   var splitedDay=day.toString().split(" ")[0].split("-");
   var formatedDate="${splitedDay[2]}/${splitedDay[1]}/${splitedDay[0]}";
 
@@ -35,6 +34,7 @@ myBookings.assignAll(response.data["bookings"]);
   @override
   void onInit() {
     super.onInit();
+    changeDay(DateTime.now(),DateTime.now());
   }
 
   @override

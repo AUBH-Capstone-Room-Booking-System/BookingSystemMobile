@@ -54,7 +54,7 @@ class EditbookingController extends GetxController {
       };
       var response =
       await dio.post("${AppConstants.hostUrl}/favorite/delete", data: reqData);
-      Get.snackbar("Added", "removed room from favorites!",snackPosition: SnackPosition.BOTTOM);
+      Get.snackbar("Removed", "removed room from favorites!",snackPosition: SnackPosition.BOTTOM);
 
     } catch (error) {
       print('Error: $error');
