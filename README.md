@@ -1,4 +1,4 @@
-# bookingstore
+# Room Booking System
 
 A new Flutter project.
 
