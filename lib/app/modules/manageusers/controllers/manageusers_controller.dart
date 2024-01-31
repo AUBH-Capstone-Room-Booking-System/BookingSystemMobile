@@ -59,6 +59,7 @@ resetControlllers(){
   phoneNumber.text="";
   major.text="";
   email.text="";
+  update();
 }
 
 selectUser(int index){

@@ -100,6 +100,23 @@ class EditbookingController extends GetxController {
     }
   }
 
+  getAllBooking() async {
+    Dio dio = Dio();
+
+    try {
+      isLoading = true;
+      update();
+      var response =
+      await dio.get("${AppConstants.hostUrl}/booking/admin/findall");
+
+      bookings.assignAll(response.data["bookings"]);
+      isLoading = false;
+      update();
+    } catch (error) {
+      print('Error: $error');
+    }
+  }
+
   getRooms() async {
     Dio dio = Dio();
 
@@ -130,7 +147,6 @@ class EditbookingController extends GetxController {
       var reqData = {
         "roomNumber": selectedRoom + 1,
       };
-      print(reqData);
       var response = await dio.post(
           "${AppConstants.hostUrl}/booking/edit/${prevBookingId}",
           data: reqData);
@@ -161,7 +177,12 @@ class EditbookingController extends GetxController {
   @override
   void onReady() {
     super.onReady();
-    getBooking();
+    if(prefs.getString("userType")=="Admin"){
+      getAllBooking();
+    }else{
+      getBooking();
+
+    }
   }
 
   @override

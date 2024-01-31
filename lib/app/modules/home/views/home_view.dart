@@ -159,6 +159,8 @@ class HomeView extends GetView<HomeController> {
                               Expanded(
                                   child: GestureDetector(
                                 onTap: () {
+                                  editBookingController.getAllBooking();
+
                                   Get.toNamed("/managebookings");
                                 },
                                 child: Container(

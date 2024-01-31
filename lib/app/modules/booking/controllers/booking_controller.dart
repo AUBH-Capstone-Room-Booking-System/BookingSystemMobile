@@ -36,6 +36,7 @@ class BookingController extends GetxController {
             backgroundColor: AppColors.bookedColor, colorText: Colors.white,  snackPosition: SnackPosition.BOTTOM);
         return;
       }
+      var fullName="${prefs.getString("firstName")} ${prefs.getString("lastName")}";
       var reqData = {
         "startDate": date.text,
         "startTime": startTime.text,
@@ -43,12 +44,16 @@ class BookingController extends GetxController {
         "purpose": purpose.text,
         "userId": prefs.getInt("myId"),
         "roomNumber": roomNumber+1,
+        "guest":fullName
       };
+      print(reqData);
       var response =
           await dio.post("${AppConstants.hostUrl}/booking/add", data: reqData);
       Get.snackbar("Booked", "Successfully booked the room!",snackPosition: SnackPosition.BOTTOM);
       Get.toNamed("/");
-    } catch (e) {}
+    } catch (e) {
+
+    }
   }
 
   getRooms() async {
@@ -121,6 +126,12 @@ class BookingController extends GetxController {
   @override
   void onReady() {
     super.onReady();
+     date.text = "";
+     startTime.text ="";
+     endTime.text="";
+     purpose.text="";
+     roomNumber=-1;
+     update();
   }
 
   @override
