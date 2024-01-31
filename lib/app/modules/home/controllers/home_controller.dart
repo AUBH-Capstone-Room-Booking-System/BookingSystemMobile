@@ -1,15 +1,21 @@
 import 'package:bookingstore/AppContants.dart';
+import 'package:bookingstore/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:dio/dio.dart';
 class HomeController extends GetxController {
-  //TODO: Implement HomeController
 
+bool isAdmin=false;
 
   final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
+    var userType=prefs.getString("userType");
+    if(userType=="Admin"){
+      isAdmin=true;
+    }
+    update();
   }
 
   @override

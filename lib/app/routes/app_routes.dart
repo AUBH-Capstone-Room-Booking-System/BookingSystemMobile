@@ -11,6 +11,8 @@ abstract class Routes {
   static const ACCOUNT = _Paths.ACCOUNT;
   static const CALENDAR = _Paths.CALENDAR;
   static const RESET = _Paths.RESET;
+  static const MANAGEUSERS = _Paths.MANAGEUSERS;
+  static const MANAGEBOOKINGS = _Paths.MANAGEBOOKINGS;
 }
 
 abstract class _Paths {
@@ -23,4 +25,6 @@ abstract class _Paths {
   static const ACCOUNT = '/account';
   static const CALENDAR = '/calendar';
   static const RESET = '/reset';
+  static const MANAGEUSERS = '/manageusers';
+  static const MANAGEBOOKINGS = '/managebookings';
 }

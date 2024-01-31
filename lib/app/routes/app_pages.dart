@@ -16,6 +16,10 @@ import '../modules/home/views/home_view.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
+import '../modules/managebookings/bindings/managebookings_binding.dart';
+import '../modules/managebookings/views/managebookings_view.dart';
+import '../modules/manageusers/bindings/manageusers_binding.dart';
+import '../modules/manageusers/views/manageusers_view.dart';
 import '../modules/reset/bindings/reset_binding.dart';
 import '../modules/reset/views/reset_view.dart';
 
@@ -66,6 +70,16 @@ class AppPages {
       name: _Paths.RESET,
       page: () => const ResetView(),
       binding: ResetBinding(),
+    ),
+    GetPage(
+      name: _Paths.MANAGEUSERS,
+      page: () => const ManageusersView(),
+      binding: ManageusersBinding(),
+    ),
+    GetPage(
+      name: _Paths.MANAGEBOOKINGS,
+      page: () => const ManagebookingsView(),
+      binding: ManagebookingsBinding(),
     ),
   ];
 }

@@ -126,7 +126,7 @@ bottomNavigationBar: BottomNavBarWidget(currentIndex: 2,),
                 ),
               )
             ],
-          )
+          ),
         );
       },)
     );
