@@ -14,7 +14,6 @@ TextEditingController firstName=TextEditingController();
 TextEditingController lastName=TextEditingController();
 TextEditingController email=TextEditingController();
 TextEditingController password=TextEditingController();
-
 TextEditingController phoneNumber=TextEditingController();
 TextEditingController major=TextEditingController();
 var selectedUser=0;
@@ -59,6 +58,7 @@ resetControlllers(){
   phoneNumber.text="";
   major.text="";
   email.text="";
+  password.text="";
   update();
 }
 
@@ -69,6 +69,8 @@ selectUser(int index){
 
   email.text=users[index]["email"];
   phoneNumber.text=users[index]["phoneNumber"];
+  password.text=users[index]["password"];
+
   major.text=users[index]["major"];
   currentDropDownValue=users[index]["userType"];
 
@@ -103,6 +105,7 @@ editAccount() async{
       "phoneNumber":phoneNumber.text,
       "major":major.text,
       "userType":currentDropDownValue,
+      "password":password.text
     };
     var response =
     await dio.post("${AppConstants.hostUrl}/user/admin/edit/${selectedUser}", data: reqData);
@@ -110,6 +113,7 @@ editAccount() async{
     switchPage(0);
     update();
     Get.snackbar("Success", "Successfully edited account",  snackPosition: SnackPosition.BOTTOM);
+    resetControlllers();
 getAllUsers();
   } catch (error) {
     print('Error: $error');

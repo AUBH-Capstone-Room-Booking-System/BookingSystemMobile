@@ -31,7 +31,7 @@ bool obscureText=true;
         prefs.setString("lastName",response.data['user']["lastName"]);
         prefs.setString("email",response.data['user']["email"]);
         prefs.setString("phoneNumber",response.data['user']["phoneNumber"]);
-        prefs.setInt("myId",response.data['user']["id"]);
+        prefs.setInt("id",response.data['user']["id"]);
         prefs.setString("userType",response.data['user']["userType"]);
 
 

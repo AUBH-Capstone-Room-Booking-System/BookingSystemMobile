@@ -15,7 +15,7 @@ class FavoritesController extends GetxController {
     Dio dio = Dio();
 
     try {
-      var id =prefs.getInt("myId");
+      var id =prefs.getInt("id");
       var reqData={
         "userId":id,
       };
@@ -37,7 +37,7 @@ class FavoritesController extends GetxController {
     Dio dio = Dio();
 
     try {
-      var id=prefs.getInt("myId");
+      var id=prefs.getInt("id");
       var reqData = {
         "roomNumber":selectedFavoriteRoom,
         "userId": id,

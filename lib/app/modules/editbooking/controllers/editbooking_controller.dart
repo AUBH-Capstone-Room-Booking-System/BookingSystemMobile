@@ -29,7 +29,7 @@ class EditbookingController extends GetxController {
     Dio dio = Dio();
 
     try {
-      var id=prefs.getInt("myId");
+      var id=prefs.getInt("id");
       var reqData = {
         "roomNumber":selectedRoom+1,
         "userId": id,
@@ -47,7 +47,7 @@ class EditbookingController extends GetxController {
     Dio dio = Dio();
 
     try {
-      var id=prefs.getInt("myId");
+      var id=prefs.getInt("id");
       var reqData = {
         "roomNumber":selectedRoom+1,
         "userId": id,
@@ -86,7 +86,7 @@ class EditbookingController extends GetxController {
     Dio dio = Dio();
 
     try {
-      var id = prefs.getInt("myId");
+      var id = prefs.getInt("id");
       isLoading = true;
       update();
       var response =

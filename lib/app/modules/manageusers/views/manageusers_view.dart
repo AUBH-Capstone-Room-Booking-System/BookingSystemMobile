@@ -1,4 +1,5 @@
 import 'package:bookingstore/AppColors.dart';
+import 'package:bookingstore/main.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -26,6 +27,7 @@ class ManageusersView extends GetView<ManageusersController> {
                           Get.back();
 
                         }else{
+                          print("this case");
                           controller.resetControlllers();
                           controller.switchPage(0);
 
@@ -58,8 +60,7 @@ class ManageusersView extends GetView<ManageusersController> {
                               shrinkWrap: true,
                               itemCount: controller.users.length,
                               itemBuilder: (BuildContext context, int index) {
-                                /*
-                                if(controller.users)*/
+
                                 return Container(
                                   padding: EdgeInsets.all(10),
                                   margin: EdgeInsets.symmetric(horizontal: 20,vertical: 10),
@@ -95,8 +96,11 @@ class ManageusersView extends GetView<ManageusersController> {
                                         ],
                                       ),
                                       IconButton(onPressed: (){
-                                        controller.selectUser(index);
-                                        controller.switchPage(1);
+
+
+                                          controller.selectUser(index);
+                                          controller.switchPage(1);
+
                                       }, icon:Icon(FontAwesomeIcons.ellipsisVertical))
                                     ],
                                   ),
@@ -118,9 +122,8 @@ class ManageusersView extends GetView<ManageusersController> {
                         ),
                       ],
                     ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                    ListView(
+
                       children: [
                         Text("Account Details",style: TextStyle(
                             fontWeight: FontWeight.bold,
@@ -202,6 +205,27 @@ class ManageusersView extends GetView<ManageusersController> {
                             ),
                           ],
                         ),
+
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("Password"),
+                            TextFormField(
+                              obscureText: true,
+                              controller: controller.password,
+                              decoration: InputDecoration(
+                                border: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    width: 2.0,
+                                    color: Colors.blue,
+                                  ),
+                                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                                ),
+
+                              ),
+                            ),
+                          ],
+                        ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -240,6 +264,8 @@ class ManageusersView extends GetView<ManageusersController> {
                             )
                           ],
                         ),
+                        SizedBox(height: 10,),
+
                         GestureDetector(
                           onTap:(){
                             controller.editAccount();
@@ -253,6 +279,7 @@ class ManageusersView extends GetView<ManageusersController> {
                             child: Text("Save changes",textAlign: TextAlign.center,style: TextStyle(color: Colors.white),),
                           ),
                         ),
+                        SizedBox(height: 10,),
                         GestureDetector(
                           onTap:(){
                             controller.deleteAccount();

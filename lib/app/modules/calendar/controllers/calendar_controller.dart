@@ -15,7 +15,7 @@ changeDay(day,focusedDay)async{
   var formatedDate="${splitedDay[2]}/${splitedDay[1]}/${splitedDay[0]}";
 
   Dio dio = Dio();
-  var id=prefs.getInt("myId");
+  var id=prefs.getInt("id");
   try {
     var reqData = {
       "startDate":formatedDate,

@@ -20,6 +20,8 @@ import '../modules/managebookings/bindings/managebookings_binding.dart';
 import '../modules/managebookings/views/managebookings_view.dart';
 import '../modules/manageusers/bindings/manageusers_binding.dart';
 import '../modules/manageusers/views/manageusers_view.dart';
+import '../modules/notifications/bindings/notifications_binding.dart';
+import '../modules/notifications/views/notifications_view.dart';
 import '../modules/reset/bindings/reset_binding.dart';
 import '../modules/reset/views/reset_view.dart';
 
@@ -80,6 +82,11 @@ class AppPages {
       name: _Paths.MANAGEBOOKINGS,
       page: () => const ManagebookingsView(),
       binding: ManagebookingsBinding(),
+    ),
+    GetPage(
+      name: _Paths.NOTIFICATIONS,
+      page: () => const NotificationsView(),
+      binding: NotificationsBinding(),
     ),
   ];
 }

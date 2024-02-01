@@ -27,9 +27,17 @@ class HomeView extends GetView<HomeController> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  "Hello, ${name}",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Hello, ${name}",
+                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
+                    ),
+                    IconButton(onPressed: (){
+                      Get.toNamed("/notifications");
+                    }, icon: Icon(Icons.notifications))
+                  ],
                 ),
                 Column(
                   children: [

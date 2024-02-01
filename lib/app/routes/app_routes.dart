@@ -13,6 +13,7 @@ abstract class Routes {
   static const RESET = _Paths.RESET;
   static const MANAGEUSERS = _Paths.MANAGEUSERS;
   static const MANAGEBOOKINGS = _Paths.MANAGEBOOKINGS;
+  static const NOTIFICATIONS = _Paths.NOTIFICATIONS;
 }
 
 abstract class _Paths {
@@ -27,4 +28,5 @@ abstract class _Paths {
   static const RESET = '/reset';
   static const MANAGEUSERS = '/manageusers';
   static const MANAGEBOOKINGS = '/managebookings';
+  static const NOTIFICATIONS = '/notifications';
 }

@@ -16,9 +16,28 @@ class BookingView extends GetView<BookingController> {
     return Scaffold(body: GetBuilder<BookingController>(
       builder: (controller) {
         return Container(
-          padding: EdgeInsets.all(20),
+          padding: EdgeInsets.all(10),
           child: Column(
             children: [
+              Row(
+                children: [
+                  IconButton(
+                    onPressed: () {
+
+                        Get.back();
+
+
+                    },
+                    icon: Icon(Icons.chevron_left),
+                  ),
+                  Text(
+                    "Back",
+                    style: TextStyle(
+                        decoration: TextDecoration.underline,
+                        fontWeight: FontWeight.bold),
+                  )
+                ],
+              ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -160,7 +179,7 @@ class BookingView extends GetView<BookingController> {
                       child: GridView.builder(
                           gridDelegate:
                               SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 3, childAspectRatio: 3),
+                                  crossAxisCount: 3, childAspectRatio: 1.5),
                           itemCount: controller.rooms.length,
                           itemBuilder: (BuildContext context, int index) {
                             return GestureDetector(
@@ -181,7 +200,8 @@ class BookingView extends GetView<BookingController> {
                                   };
                                   var response =
                                       await dio.post("${AppConstants.hostUrl}/sensor/find", data: reqData);
-                                  var id =prefs.getInt("myId");
+                                  var id =prefs.getInt("id");
+                                  print(id);
                                   reqData = {
                                     "userId": id!,
                                     "roomNumber":index+1
@@ -219,7 +239,18 @@ class BookingView extends GetView<BookingController> {
                                           children: [
                                                 Text("PIR Sensor: ${response.data["sensorData"]["motion"]}"),
 
-                                            Text("Temperature: ${response.data["sensorData"]["temperature"]}")
+                                            Text("Temperature: ${response.data["sensorData"]["temperature"]}"),
+                                            Text("Humidity: ${response.data["sensorData"]["humidity"]}"),
+                                            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,mainAxisSize: MainAxisSize.min,children: [
+                                              Text("Comfort: ${response.data["sensorData"]["comfort"]}"),
+                                              SizedBox(width: 10,),
+                                              Tooltip(
+
+                                               message: "For a room to get 5 stars it need to be ...",
+
+                                                child: Icon(Icons.info_outline),
+                                              )
+                                            ],)
 
                                           ],
                                         ),
@@ -238,44 +269,57 @@ class BookingView extends GetView<BookingController> {
                                   controller.update();
                                 }
                               },
-                              child:controller.roomNumber==index? Container(
-                                decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(30),
-                                border: Border.all(
-                                  color: AppColors.mainColor!,
-                                  width: 2
-                                )),
-                                margin: EdgeInsets.all(6),
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 9, horizontal: 24),
-                                child: Center(
-                                  child: Text(
-                                    'Room ${index + 1}',
-                                    style: TextStyle(color: AppColors.mainColor),
+                              child:controller.roomNumber==index? Column(
+                                children: [
+                                  Container(
+                                    decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.circular(30),
+                                    border: Border.all(
+                                      color: AppColors.mainColor!,
+                                      width: 2
+                                    )),
+                                    margin: EdgeInsets.all(6),
+                                    padding: EdgeInsets.symmetric(
+                                        vertical: 9, horizontal: 24),
+                                    child: Center(
+                                      child: Text(
+                                        'Room ${index + 1}',
+                                        style: TextStyle(color: AppColors.mainColor),
+                                      ),
+                                    ),
                                   ),
-                                ),
-                              ): Container(
-                                decoration: BoxDecoration(
-                                    color: controller.rooms[index]
-                                    ["roomStatus"] ==
-                                        "Available"
-                                        ? AppColors.mainColor
-                                        : controller.rooms[index]
-                                    ["roomStatus"] ==
-                                        "Occupied"
-                                        ? AppColors.occupiedColor
-                                        : AppColors.bookedColor,
-                                    borderRadius: BorderRadius.circular(30)),
-                                margin: EdgeInsets.all(6),
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 9, horizontal: 24),
-                                child: Center(
-                                  child: Text(
-                                    'Room ${index + 1}',
-                                    style: TextStyle(color: Colors.white),
+                                  Text("Category : ${controller.rooms[index]["roomSize"]=="s"?"Small":controller.rooms[index]["roomSize"]=="m"?"Medium":"Large"}"),
+                                  Text("Capacity : ${controller.rooms[index]["roomCapacity"]}")
+                                ],
+                              ): Column(
+                                children: [
+                                  Container(
+                                    decoration: BoxDecoration(
+                                        color: controller.rooms[index]
+                                        ["roomStatus"] ==
+                                            "Available"
+                                            ? AppColors.mainColor
+                                            : controller.rooms[index]
+                                        ["roomStatus"] ==
+                                            "Occupied"
+                                            ? AppColors.occupiedColor
+                                            : AppColors.bookedColor,
+                                        borderRadius: BorderRadius.circular(30)),
+                                    margin: EdgeInsets.all(6),
+                                    padding: EdgeInsets.symmetric(
+                                        vertical: 9, horizontal: 24),
+                                    child: Center(
+                                      child: Text(
+                                        'Room ${index + 1}',
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                    ),
                                   ),
-                                ),
+                                  Text("Category : ${controller.rooms[index]["roomSize"]=="s"?"Small":controller.rooms[index]["roomSize"]=="m"?"Medium":"Large"}"),
+                                  Text("Capacity : ${controller.rooms[index]["roomCapacity"]}")
+
+                                ],
                               ),
                             );
                           }),
@@ -290,7 +334,6 @@ class BookingView extends GetView<BookingController> {
                   TextFormField(
                     controller: controller.purpose,
                     decoration: InputDecoration(
-                      suffixIcon: Icon(Icons.calendar_today),
                       helperText: "Ex: Exam Preparation",
 
                       border: OutlineInputBorder(

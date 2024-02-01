@@ -433,7 +433,7 @@ class ManagebookingsView extends GetView<ManagebookingsController> {
                                                       "${AppConstants.hostUrl}/sensor/find",
                                                       data: reqData);
                 
-                                                  var id = prefs.getInt("myId");
+                                                  var id = prefs.getInt("id");
                                                   reqData = {
                                                     "userId": id!,
                                                     "roomNumber": index + 1

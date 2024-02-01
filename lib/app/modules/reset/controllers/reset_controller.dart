@@ -6,40 +6,46 @@ import 'package:get/get.dart';
 
 class ResetController extends GetxController {
   //TODO: Implement ResetController
-TextEditingController email=TextEditingController();
-TextEditingController firstPassword=TextEditingController();
-TextEditingController secondPassword=TextEditingController();
-bool obscureText=true;
-confirm()async{
-  if(firstPassword.text!=secondPassword.text){
-    Get.snackbar("Error", "Passwords need to match",snackPosition: SnackPosition.BOTTOM,colorText: Colors.white,backgroundColor: Colors.red);
-  return ;
+  TextEditingController email = TextEditingController();
+  confirm() async {
+    Dio dio = Dio();
+
+    try {
+      var response =
+          await dio.post("${AppConstants.hostUrl}/user/findbyemail", data: {
+        "email": email.text,
+      });
+      var user = response.data["user"];
+      var emailCode = email.text.split("@")[0];
+      if (response.statusCode == 200) {
+        var response2 =
+            await dio.post("${AppConstants.hostUrl}/notification/add", data: {
+          "content":
+              "${user["firstName"]} ${user["lastName"]} (${emailCode}) wants to reset their password",
+        });
+
+        Get.snackbar(
+          "Success",
+          "Notification sent to the admin",
+          snackPosition: SnackPosition.BOTTOM,
+        );
+        Get.toNamed("/login");
+      } else {
+        Get.snackbar("Error", "Email doesn't exist",
+            snackPosition: SnackPosition.BOTTOM,
+            colorText: Colors.white,
+            backgroundColor: Colors.red);
+      }
+    } catch (error) {
+      print(error);
+      Get.snackbar("Errorr", "Email doesn't exist",
+          snackPosition: SnackPosition.BOTTOM,
+          colorText: Colors.white,
+          backgroundColor: Colors.red);
+    }
   }
 
-  Dio dio = Dio();
-
-  try {
-    print("${AppConstants.hostUrl}/user/reset");
-    var reqData={
-      "email":email.text,
-      "password":firstPassword.text
-    };
-    print(reqData);
-    var response = await dio.post(
-        "${AppConstants.hostUrl}/user/reset",data: reqData
-    );
-
-      Get.snackbar("Success", "Password has been reset",snackPosition: SnackPosition.BOTTOM,);
-      Get.toNamed("/login");
-
-
-
-  } catch (error) {
-    Get.snackbar("Error", "Email doesn't exist",snackPosition: SnackPosition.BOTTOM,colorText: Colors.white,backgroundColor: Colors.red);
-  }
-}
-
-@override
+  @override
   void onInit() {
     super.onInit();
   }
@@ -53,5 +59,4 @@ confirm()async{
   void onClose() {
     super.onClose();
   }
-
 }

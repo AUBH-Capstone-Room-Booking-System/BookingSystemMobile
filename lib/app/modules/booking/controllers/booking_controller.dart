@@ -42,7 +42,7 @@ class BookingController extends GetxController {
         "startTime": startTime.text,
         "endTime": endTime.text,
         "purpose": purpose.text,
-        "userId": prefs.getInt("myId"),
+        "userId": prefs.getInt("id"),
         "roomNumber": roomNumber+1,
         "guest":fullName
       };
@@ -78,7 +78,7 @@ class BookingController extends GetxController {
     Dio dio = Dio();
 
     try {
-      var id=prefs.getInt("myId");
+      var id=prefs.getInt("id");
       var reqData = {
         "roomNumber":roomNumber+1,
         "userId": id,
@@ -96,7 +96,7 @@ class BookingController extends GetxController {
     Dio dio = Dio();
 
     try {
-      var id=prefs.getInt("myId");
+      var id=prefs.getInt("id");
       var reqData = {
         "roomNumber":roomNumber+1,
         "userId": id,

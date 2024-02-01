@@ -23,7 +23,7 @@ Get.offAllNamed("/login");
   editAccount() async{
     Dio dio = Dio();
     try {
-      var id=prefs.getInt("myId");
+      var id=prefs.getInt("id");
       var reqData = {
         "firstName":firstName.text,
         "lastName":lastName.text,

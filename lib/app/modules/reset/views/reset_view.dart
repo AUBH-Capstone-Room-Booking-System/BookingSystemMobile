@@ -43,62 +43,6 @@ class ResetView extends GetView<ResetController> {
                   ),
                 ],
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text("New Password"),
-                  TextFormField(
-                    controller: controller.firstPassword,
-                    obscureText: controller.obscureText,
-                    decoration: InputDecoration(
-                      suffixIcon: IconButton(onPressed: () {
-                        controller.obscureText=!controller.obscureText;
-                        controller.update();
-                      }, icon: Icon(controller.obscureText?Icons.remove_red_eye:Icons.remove_red_eye_outlined),
-
-                      ), // Add your suffix icon here
-                      border: OutlineInputBorder(
-                        // Set the border width and color
-                        borderSide: BorderSide(
-                          width: 2.0,
-                          color: Colors.blue,
-                        ),
-                        // Set the border radius
-                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      ),
-                      // Optionally add padding to the border
-                      // contentPadding: EdgeInsets.all(8.0),
-                    ),
-                  ),
-                ],
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text("Confirm New Password"),
-                  TextFormField(
-                    controller: controller.secondPassword,
-                    obscureText: controller.obscureText,
-
-                    decoration: InputDecoration(
-                      suffixIcon: IconButton(onPressed: () {
-                        controller.obscureText=!controller.obscureText;
-                        controller.update();
-                      }, icon: Icon(controller.obscureText?Icons.remove_red_eye:Icons.remove_red_eye_outlined),),
-                      border: OutlineInputBorder(
-                        // Set the border width and color
-                        borderSide: BorderSide(
-                          width: 2.0,
-                          color: Colors.blue,
-                        ),
-                        // Set the border radius
-                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      ),
-
-                    ),
-                  ),
-                ],
-              ),
               GestureDetector(
                 onTap:(){
                   controller.confirm();
