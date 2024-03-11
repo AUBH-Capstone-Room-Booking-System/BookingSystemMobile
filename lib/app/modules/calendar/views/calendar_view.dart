@@ -69,7 +69,7 @@ class CalendarView extends GetView<CalendarController> {
                         child: Container(
                           padding: EdgeInsets.symmetric(vertical: 9,horizontal: 24),
                           decoration: BoxDecoration(
-                            color: AppColors.mainColor,
+                            color: AppColors.buttonColor,
                             borderRadius: BorderRadius.circular(24)
                           ),
                           child: Text("${controller.myBookings[index]["purpose"]} (${controller.myBookings[index]["startTime"]} - ${controller.myBookings[index]["endTime"]})",style: TextStyle(

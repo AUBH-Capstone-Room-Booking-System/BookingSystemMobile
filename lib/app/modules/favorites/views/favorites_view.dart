@@ -84,7 +84,7 @@ class FavoritesView extends GetView<FavoritesController> {
                                   bottom: 20
                               ),
                               decoration: BoxDecoration(
-                                  color: AppColors.mainColor,
+                                  color: AppColors.buttonColor,
                                   borderRadius: BorderRadius.circular(6)),
                               padding: EdgeInsets.symmetric(
                                   vertical: 10, horizontal: 24),

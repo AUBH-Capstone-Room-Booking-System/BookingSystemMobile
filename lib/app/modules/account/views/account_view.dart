@@ -105,7 +105,7 @@ bottomNavigationBar: BottomNavBarWidget(currentIndex: 2,),
                 },
                 child: Container(
                   decoration: BoxDecoration(
-                      color: AppColors.mainColor,
+                      color: AppColors.buttonColor,
                       borderRadius: BorderRadius.circular(10)),
                   width: Get.width,
                   padding: EdgeInsets.symmetric(vertical: 15),
@@ -118,7 +118,7 @@ bottomNavigationBar: BottomNavBarWidget(currentIndex: 2,),
                 },
                 child: Container(
                   decoration: BoxDecoration(
-                      color: AppColors.mainColor,
+                      color: AppColors.buttonColor,
                       borderRadius: BorderRadius.circular(10)),
                   width: Get.width,
                   padding: EdgeInsets.symmetric(vertical: 15),

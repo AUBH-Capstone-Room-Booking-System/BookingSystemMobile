@@ -32,7 +32,7 @@ class HomeView extends GetView<HomeController> {
                   children: [
                     Text(
                       "Hello, ${name}",
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
+                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40,color: AppColors.mainColor),
                     ),
                     IconButton(onPressed: (){
                       Get.toNamed("/notifications");
@@ -51,7 +51,7 @@ class HomeView extends GetView<HomeController> {
                           child: Container(
                             height: 100,
                             decoration: BoxDecoration(
-                                color: AppColors.mainColor,
+                                color: AppColors.buttonColor,
                                 borderRadius: BorderRadius.circular(24)),
                             child: Center(
                                 child: Text(
@@ -70,7 +70,7 @@ class HomeView extends GetView<HomeController> {
                             child: Container(
                           height: 100,
                           decoration: BoxDecoration(
-                              color: AppColors.mainColor,
+                              color: AppColors.buttonColor,
                               borderRadius: BorderRadius.circular(24)),
                           child: Center(
                               child: Text(
@@ -97,7 +97,7 @@ class HomeView extends GetView<HomeController> {
                           child: Container(
                             height: 100,
                             decoration: BoxDecoration(
-                                color: AppColors.mainColor,
+                                color: AppColors.buttonColor,
                                 borderRadius: BorderRadius.circular(24)),
                             child: Center(
                                 child: Text(
@@ -121,7 +121,7 @@ class HomeView extends GetView<HomeController> {
                           child: Container(
                             height: 100,
                             decoration: BoxDecoration(
-                                color: AppColors.mainColor,
+                                color: AppColors.buttonColor,
                                 borderRadius: BorderRadius.circular(24)),
                             child: Center(
                                 child: Text(
@@ -149,7 +149,7 @@ class HomeView extends GetView<HomeController> {
                                 child: Container(
                                   height: 100,
                                   decoration: BoxDecoration(
-                                      color: AppColors.mainColor,
+                                      color: AppColors.buttonColor,
                                       borderRadius: BorderRadius.circular(24)),
                                   child: Center(
                                       child: Text(
@@ -174,7 +174,7 @@ class HomeView extends GetView<HomeController> {
                                 child: Container(
                                   height: 100,
                                   decoration: BoxDecoration(
-                                      color: AppColors.mainColor,
+                                      color: AppColors.buttonColor,
                                       borderRadius: BorderRadius.circular(24)),
                                   child: Center(
                                       child: Text(

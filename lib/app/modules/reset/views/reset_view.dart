@@ -49,7 +49,7 @@ class ResetView extends GetView<ResetController> {
                 },
                 child: Container(
                   decoration: BoxDecoration(
-                      color: AppColors.mainColor,
+                      color: AppColors.buttonColor,
                       borderRadius: BorderRadius.circular(10)),
                   width: Get.width,
                   padding: EdgeInsets.symmetric(vertical: 15),

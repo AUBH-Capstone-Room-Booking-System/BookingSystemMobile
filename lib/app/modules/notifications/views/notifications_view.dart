@@ -41,7 +41,7 @@ class NotificationsView extends GetView<NotificationsController> {
                           margin: EdgeInsets.all(5),
                           padding: EdgeInsets.all(10),
                           decoration: BoxDecoration(
-                            color: AppColors.mainColor,
+                            color: AppColors.buttonColor,
                             borderRadius: BorderRadius.circular(5)
 
                           ),

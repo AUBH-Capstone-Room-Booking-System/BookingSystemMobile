@@ -17,7 +17,7 @@ class LoginView extends GetView<LoginController> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image.asset("assets/placeholder.png"),
+                Image.asset("assets/logo.png"),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -69,7 +69,7 @@ class LoginView extends GetView<LoginController> {
                   },
                   child: Container(
                     decoration: BoxDecoration(
-                        color: AppColors.mainColor,
+                        color: AppColors.buttonColor,
                         borderRadius: BorderRadius.circular(10)),
                     width: Get.width,
                     padding: EdgeInsets.symmetric(vertical: 15),

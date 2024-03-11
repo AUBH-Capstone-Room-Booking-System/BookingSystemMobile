@@ -110,11 +110,11 @@ class EditbookingView extends GetView<EditbookingController> {
                                           borderRadius: BorderRadius.circular(24),
                                           color: controller.selectedBooking == index
                                               ? Colors.white
-                                              : AppColors.mainColor,
+                                              : AppColors.buttonColor,
                                           border:
                                           controller.selectedBooking == index
                                               ? Border.all(
-                                              color: AppColors.mainColor!,
+                                              color: AppColors.buttonColor!,
                                               width: 2)
                                               : null),
                                       child: Text(
@@ -122,7 +122,7 @@ class EditbookingView extends GetView<EditbookingController> {
                                         style: TextStyle(
                                             color:
                                             controller.selectedBooking == index
-                                                ? AppColors.mainColor
+                                                ? AppColors.buttonColor
                                                 : Colors.white,
                                             fontWeight: FontWeight.bold),
                                       ),

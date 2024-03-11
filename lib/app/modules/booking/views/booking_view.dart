@@ -358,7 +358,7 @@ class BookingView extends GetView<BookingController> {
                 },
                 child: Container(
                   decoration: BoxDecoration(
-                      color: AppColors.mainColor,
+                      color: AppColors.buttonColor,
                       borderRadius: BorderRadius.circular(5)),
                   padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
                   child: Text(

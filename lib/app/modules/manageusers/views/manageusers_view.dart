@@ -27,7 +27,6 @@ class ManageusersView extends GetView<ManageusersController> {
                           Get.back();
 
                         }else{
-                          print("this case");
                           controller.resetControlllers();
                           controller.switchPage(0);
 
@@ -53,7 +52,7 @@ class ManageusersView extends GetView<ManageusersController> {
                       children: [
                         Text(
                           "Users",
-                          style: TextStyle(fontSize: 34, fontWeight: FontWeight.bold),
+                          style: TextStyle(fontSize: 34, fontWeight: FontWeight.bold,color:AppColors.mainColor),
                         ),
                         Expanded(
                             child: ListView.builder(
@@ -65,7 +64,7 @@ class ManageusersView extends GetView<ManageusersController> {
                                   padding: EdgeInsets.all(10),
                                   margin: EdgeInsets.symmetric(horizontal: 20,vertical: 10),
                                   decoration: BoxDecoration(
-                                      border: Border.all(color: AppColors.mainColor!,width: 2),
+                                      border: Border.all(color: AppColors.buttonColor!,width: 2),
                                       borderRadius: BorderRadius.circular(10)
                                   ),
                                   child: Row(
@@ -113,7 +112,7 @@ class ManageusersView extends GetView<ManageusersController> {
                           },
                           child: Container(
                             decoration: BoxDecoration(
-                                color: AppColors.mainColor,
+                                color: AppColors.buttonColor,
                                 borderRadius: BorderRadius.circular(10)),
                             width: Get.width,
                             padding: EdgeInsets.symmetric(vertical: 15),
@@ -272,7 +271,7 @@ class ManageusersView extends GetView<ManageusersController> {
                           },
                           child: Container(
                             decoration: BoxDecoration(
-                                color: AppColors.mainColor,
+                                color: AppColors.buttonColor,
                                 borderRadius: BorderRadius.circular(10)),
                             width: Get.width,
                             padding: EdgeInsets.symmetric(vertical: 15),
@@ -286,7 +285,7 @@ class ManageusersView extends GetView<ManageusersController> {
                           },
                           child: Container(
                             decoration: BoxDecoration(
-                                color: AppColors.mainColor,
+                                color: AppColors.buttonColor,
                                 borderRadius: BorderRadius.circular(10)),
                             width: Get.width,
                             padding: EdgeInsets.symmetric(vertical: 15),
@@ -451,7 +450,7 @@ class ManageusersView extends GetView<ManageusersController> {
                           },
                           child: Container(
                             decoration: BoxDecoration(
-                                color: AppColors.mainColor,
+                                color: AppColors.buttonColor,
                                 borderRadius: BorderRadius.circular(10)),
                             width: Get.width,
                             padding: EdgeInsets.symmetric(vertical: 15),
